@@ -16,10 +16,10 @@ public class ProductManager {
         for (Product product : repo.getItems()) {
             if (matches(product, text)) {
                 Product[] tmp = new Product[result.length + 1];
-                 for (int i = 0; i < result.length; i++) {
+                for (int i = 0; i < result.length; i++) {
                     tmp[i] = result[i];
                 }
-                tmp [result.length] = product;
+                tmp[tmp.length - 1] = product;
                 result = tmp;
             }
         }

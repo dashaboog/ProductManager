@@ -8,7 +8,7 @@ public class ProductManagerTest {
     ProductManager manager = new ProductManager(repo);
 
     private Book book1 = new Book(3457874, "Над пропастью во ржи", 700, "Джером Сэлинджер");
-    private Book book2 = new Book(643847394, "Пролетаю над гнездом кукушки", 1_000, "Кен Кизи");
+    private Book book2 = new Book(643847394, "Пролетая над гнездом кукушки", 1_000, "Кен Кизи");
     private Book book3 = new Book(6789876, "Властелин колец", 1_500, "Дж. Р. Р. Толкин");
     private Book book4 = new Book(97747844, "Проблема строительства социалистических городов", 650, "Н.Милютин");
     private Book book5 = new Book(647474848, "Гарри Поттер", 980, "Дж. Роулинг");
@@ -74,5 +74,14 @@ public class ProductManagerTest {
         boolean expected = true;
         boolean actual = manager.matches(phone5, "IPoc");
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void ShouldFindFew() {
+
+        Product[] expected = {book1, book2};
+        Product[] actual = manager.searchBy("ад");
+        Assertions.assertArrayEquals(expected, actual);
+
     }
 }
